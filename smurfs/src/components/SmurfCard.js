@@ -29,7 +29,7 @@ const SmurfCard = props => {
     const classes = useStyles();
 
     return (
-        <Card className={classes.card}>
+        <Card className={classes.card} id={props.id}>
             <CardContent>
             <Typography className={classes.title} color="textSecondary" gutterBottom>
                 {props.smurf.name}

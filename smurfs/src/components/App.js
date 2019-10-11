@@ -3,6 +3,10 @@ import "./App.css";
 
 // import components
 import SmurfContainer from "./SmurfContainer";
+import FormikAddSmurfForm from "./AddSmurfForm";
+
+//connect
+import { connect } from "react-redux";
 
 function App() {
 
@@ -12,9 +16,20 @@ function App() {
         <div>Welcome to your state management version of Smurfs!</div>
         <div>Start inside of your `src/index.js` file!</div>
         <div>Have fun!</div>
+        <FormikAddSmurfForm />
         <SmurfContainer />
       </div>
     );
 }
 
-export default App;
+const mapStateToPros = state => {
+  return {
+    smurfs: state.smurfs,
+    isFetching: state.isFetching,
+    error: state.error
+  };
+};
+
+export default connect(mapStateToPros, {})(App);
+
+
