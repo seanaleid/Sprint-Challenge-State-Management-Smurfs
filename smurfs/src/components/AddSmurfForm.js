@@ -43,7 +43,7 @@ const AddSmurfForm = ({values, status}) => {
                     label="height" 
                     placeholder="Height"
                 />
-                <button className="form-button">Add Smurf</button>
+                <button className="form-button" type="submit">Add Smurf</button>
             </Form>
             {smurf.map(smurf => {
                 return (
@@ -62,7 +62,7 @@ const FormikAddSmurfForm = withFormik({
             height: height || '',
         };
     },
-    handleSumbit(values, { setStatus, resetForm }) {
+    handleSubmit(values, { setStatus, resetForm }) {
         axios
             .post("https://localhost:333/smurfs")
             .then(res => {

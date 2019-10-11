@@ -21,6 +21,8 @@ const useStyles = makeStyles(theme => ({
         justifyContent: "center",
         backgroundColor: "lightgrey",
         opacity: "0.8",
+        paddingTop: `20px`,
+        paddingBottom: `50px`
     },
 }));
 
