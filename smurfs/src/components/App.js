@@ -1,16 +1,35 @@
-import React, { Component } from "react";
+import React from "react";
 import "./App.css";
-class App extends Component {
-  render() {
+
+// import components
+import SmurfContainer from "./SmurfContainer";
+// import FormikAddSmurfForm from "./AddSmurfForm";
+import AddSmurfNormalForm from "./AddSmurfNormalForm";
+import Header from "./Header";
+
+//connect
+import { connect } from "react-redux";
+
+function App() {
+
     return (
       <div className="App">
-        <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your state management version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
+        <Header />
+        {/* <FormikAddSmurfForm /> */}
+        <AddSmurfNormalForm />
+        <SmurfContainer />
       </div>
     );
-  }
 }
 
-export default App;
+const mapStateToPros = state => {
+  return {
+    smurfs: state.smurfs,
+    isFetching: state.isFetching,
+    error: state.error
+  };
+};
+
+export default connect(mapStateToPros, {})(App);
+
+
